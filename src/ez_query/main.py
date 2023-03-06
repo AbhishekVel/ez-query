@@ -1,5 +1,10 @@
-from config import load_config
-from processor import Processor
+from ez_query.config import load_config
+from ez_query.processor import Processor
 
-config = load_config()
-Processor(config).start()
+
+def run():
+    config = load_config()
+    Processor(config).start()
+
+if __name__ == "__main__":
+    run()

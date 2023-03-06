@@ -4,8 +4,8 @@ import logging
 from dataclasses import dataclass
 import openai
 
-from config import Config
-from schema_req import TableInfo
+from ez_query.config import Config
+from ez_query.schema_req import TableInfo
 
 
 @dataclass

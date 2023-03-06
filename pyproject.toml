@@ -27,3 +27,6 @@ dependencies = [
 [project.urls]
 "Source Code" = "https://github.com/AbhishekVel/ez-query"
 
+[project.scripts]
+ez_query = "ez_query.main:run"
+

@@ -5,7 +5,7 @@ import functools as functools
 from dataclasses import dataclass
 import mysql.connector
 
-from config import Config
+from ez_query.config import Config
 
 
 @dataclass

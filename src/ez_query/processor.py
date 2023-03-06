@@ -3,9 +3,9 @@ import logging
 from prompt_toolkit.shortcuts import checkboxlist_dialog
 from prompt_toolkit import prompt
 
-from config import Config
-from chatgpt_communicator import ChatGPTCommunicator
-from schema_req import SchemaRequester
+from ez_query.config import Config
+from ez_query.chatgpt_communicator import ChatGPTCommunicator
+from ez_query.schema_req import SchemaRequester
 
 
 class Processor:
