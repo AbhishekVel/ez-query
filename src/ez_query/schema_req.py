@@ -3,10 +3,9 @@ import logging
 from typing import List, Dict
 import functools as functools
 from dataclasses import dataclass
-
 import mysql.connector
 
-from constants import DB_HOST, DB_NAME, DB_USER, DB_PASSWORD
+from config import Config
 
 
 @dataclass
@@ -43,12 +42,12 @@ class SchemaRequester:
     Note: only mySQL is currently supported.
     """
 
-    def __init__(self):
+    def __init__(self, config: Config):
         self.cnx = mysql.connector.connect(
-            host=os.getenv(DB_HOST),
-            user=os.getenv(DB_USER),
-            password=os.getenv(DB_PASSWORD),
-            database=os.getenv(DB_NAME),
+            host=config.db_host,
+            user=config.db_user,
+            password=config.db_pass,
+            database=config.db_name
         )
 
     def __del__(self):

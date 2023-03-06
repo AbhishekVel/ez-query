@@ -1,10 +1,5 @@
-import os
-
-from dotenv import load_dotenv
-
+from config import load_config
 from processor import Processor
 
-# Take environment variables from .env
-load_dotenv()
-
-Processor().start()
+config = load_config()
+Processor(config).start()

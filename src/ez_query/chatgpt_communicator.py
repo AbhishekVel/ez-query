@@ -2,11 +2,10 @@ import os
 from typing import List
 import logging
 from dataclasses import dataclass
-
 import openai
 
+from config import Config
 from schema_req import TableInfo
-from constants import OPENAI_API_KEY
 
 
 @dataclass
@@ -16,8 +15,8 @@ class ChatGPTResponse:
 
 
 class ChatGPTCommunicator():
-    def __init__(self):
-        openai.api_key = os.getenv(OPENAI_API_KEY)
+    def __init__(self, config: Config):
+        openai.api_key = config.openai_api_key
 
     def ask(self, tables_info: List[TableInfo], question) -> str:
         messages=[

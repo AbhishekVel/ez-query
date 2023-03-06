@@ -1,9 +1,9 @@
 from typing import List
 import logging
-
 from prompt_toolkit.shortcuts import checkboxlist_dialog
 from prompt_toolkit import prompt
 
+from config import Config
 from chatgpt_communicator import ChatGPTCommunicator
 from schema_req import SchemaRequester
 
@@ -11,9 +11,9 @@ from schema_req import SchemaRequester
 class Processor:
     """Main loop which takes in user input and outputs results."""
 
-    def __init__(self):
-        self.sr = SchemaRequester()
-        self.chatgpt_comm = ChatGPTCommunicator()
+    def __init__(self, config: Config):
+        self.sr = SchemaRequester(config)
+        self.chatgpt_comm = ChatGPTCommunicator(config)
 
     def start(self):
         tables = self._select_tables()
