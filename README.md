@@ -1,12 +1,21 @@
-Setup:
+# Ez-Query
+## SQL Query Generator Powered by ChatGPT
 
-0. Create a virtual python env and source/bin/activate
-1. Copy the .env-template to .env file in the project root
-2. Get an OPENAI API Key from https://platform.openai.com/account/api-keys
-3. Set the OPENAI_API_KEY env
-4. Set the DB details in .env (Note: reccomended to use read-only connection)
+Ez_query allows you to generate sql queries using ChatGPT with the added benefit of retrieving your table schemas for you. 
+
+ChatGPT is capable of helping you write SQL queries but only if you provide it your table schemas first. This would mean you have to retrieve them youself manually and enter them into ChatGPT. Doing this multiple times is tedious and time-consuming. 
+
+Ez_query makes the process of retrieving your table schemas extremely simple and allows you to do this all in the terminal.
+
+## Installation
 
 
+```sh
+pip install ez_query
+```
+## Usage
 
-Running:
-`python3 main.py`
+```sh
+ez_query -h
+ez_query --openai_api_key sk-fake-key --db_host=localhost --db_user=root --db_pass=root --db_name=employees
+```
