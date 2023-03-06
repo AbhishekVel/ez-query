@@ -1,0 +1,50 @@
+import os
+from typing import List
+import logging
+from dataclasses import dataclass
+
+import openai
+
+from schema_req import TableInfo
+from constants import OPENAI_API_KEY
+
+
+@dataclass
+class ChatGPTResponse:
+    message: str
+    total_tokens_used: int
+
+
+class ChatGPTCommunicator():
+    def __init__(self):
+        openai.api_key = os.getenv(OPENAI_API_KEY)
+
+    def ask(self, tables_info: List[TableInfo], question) -> str:
+        messages=[
+            {"role": "system", "content": self._system_msg()},
+            {"role": "user", "content": self._sql_tables_info_msg(tables_info)},
+            {"role": "user", "content": question},
+        ]
+
+        logging.debug(messages)
+        
+        resp = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=messages
+        )
+
+        return ChatGPTResponse(message=resp["choices"][0]["message"]["content"], total_tokens_used=resp["usage"]["total_tokens"]) 
+
+    def _system_msg(self):
+        return """
+        You are a chatbot mean't for generating SQL queries. I will give you SQL tables
+        and ask you to generate a query for me.
+        """
+
+    def _sql_tables_info_msg(self, tables_info: List[TableInfo]) -> str:
+        msg = "Here are the SQL table schemas:\n"
+        for table_info in tables_info:
+            msg += str(table_info) + "\n"
+
+        return msg
+
