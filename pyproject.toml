@@ -1,0 +1,9 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+dependencies = [
+    "mysql-connector-python==8.0.32",
+    "openai==0.27.0",
+    "python-dotenv==0.21.1",
+    "prompt-toolkit==3.0.38"
+]
