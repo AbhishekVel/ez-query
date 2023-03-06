@@ -59,7 +59,7 @@ class SchemaRequester:
         csr = self.cnx.cursor()
         csr.execute(f"DESCRIBE {table};")
         columns = [
-            ColumnInfo(field, ctype, null, key, default, extra)
+            ColumnInfo(str(field), str(ctype), str(null), str(key), str(default), str(extra))
             for (field, ctype, null, key, default, extra) in csr
         ]
         csr.close()
@@ -71,7 +71,7 @@ class SchemaRequester:
         logging.info(f"Getting list of tables")
         csr = self.cnx.cursor()
         csr.execute("SHOW TABLES;")
-        tables = [table_name for (table_name,) in csr]
+        tables = [str(table_name) for (table_name,) in csr]
         csr.close()
 
         return tables

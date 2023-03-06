@@ -18,7 +18,7 @@ class ChatGPTCommunicator():
     def __init__(self, config: Config):
         openai.api_key = config.openai_api_key
 
-    def ask(self, tables_info: List[TableInfo], question) -> str:
+    def ask(self, tables_info: List[TableInfo], question) -> ChatGPTResponse:
         messages=[
             {"role": "system", "content": self._system_msg()},
             {"role": "user", "content": self._sql_tables_info_msg(tables_info)},
