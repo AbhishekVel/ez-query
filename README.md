@@ -7,6 +7,9 @@ ChatGPT is capable of helping you write SQL queries but only if you provide it y
 
 Ez_query makes the process of retrieving your table schemas extremely simple and allows you to do this all in the terminal.
 
+
+Note: your table schemas will be inputted into OpenAI's ChatGPT, which stores all data. Do not use if this is a concern.
+
 ## Installation
 
 
