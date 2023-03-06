@@ -19,3 +19,7 @@ pip install ez_query
 ez_query -h
 ez_query --openai_api_key sk-fake-key --db_host=localhost --db_user=root --db_pass=root --db_name=employees
 ```
+
+![image](https://user-images.githubusercontent.com/21690974/223022847-17d2ebb5-a007-458d-b3ab-2fa7e8df2bf6.png)
+
+![image](https://user-images.githubusercontent.com/21690974/223022837-1ca6e0ac-2934-4242-b6cd-13e05fbcabd9.png)
